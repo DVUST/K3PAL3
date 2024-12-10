@@ -330,6 +330,8 @@
 
         public void Save()
         {
+            if (!Directory.Exists(DataPath))
+                Directory.CreateDirectory(DataPath);
             using StreamWriter writer = new($"{DataPath}root.txt");
             writer.Write(Serialize());
         }
